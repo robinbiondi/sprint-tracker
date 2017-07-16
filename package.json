@@ -1,0 +1,27 @@
+{
+  "name": "sprint-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --watch --color --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robinbiondi/sprint-tracker.git"
+  },
+  "author": "Robin Biondi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robinbiondi/sprint-tracker/issues"
+  },
+  "homepage": "https://github.com/robinbiondi/sprint-tracker#readme",
+  "dependencies": {
+    "mithril": "^1.1.3"
+  },
+  "devDependencies": {
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
