@@ -1,12 +1,8 @@
 (function strict(){
   'use strict';
+  var m = require('m');
+  var DeveloperFactory = require('factories/DeveloperFactory');
 
-  define([
-    'm',
-    '../factories/DeveloperFactory',
-  ], devList);
-
-  function devList(m, DeveloperFactory) {
     var component = {};
 
     component.oninit = function oninit(vnode) {
@@ -17,14 +13,29 @@
       var developers = DeveloperFactory.developers;
       return m('.dev-list', [
         developers.map(displayItem),
-        m('input.dev-list__item'),
+        m('input.dev-list__item', {
+
+        }),
       ]);
     };
 
-    return component;
+    module.exports = component;
 
     function displayItem(item) {
-      return m('.dev-list__item', item.name)
+      return m('.dev-list__item', [
+        m('.dev-list__item__inline.dev-list__item__name', [
+          m('input.dev-list__item__input', {
+            value  : item.name,
+            oninput: m.withAttr('value', item.setName)
+          }),
+        ]),
+        m('.dev-list__item__inline.dev-list__item__charge', [
+          m('input.dev-list__item__input', {
+            type: 'number',
+            value  : item.timePerDay,
+            oninput: m.withAttr('value', item.setTimePerDay)
+          }),
+        ]),
+      ])
     }
-  }
 })();

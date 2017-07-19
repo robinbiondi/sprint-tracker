@@ -1,11 +1,8 @@
 (function strict() {
-  define([], Model);
 
-  function Model() {
-    return class Model {
-      constructor() {
-        this.uuid = generateUUID();
-      }
+  module.exports = class Model {
+    constructor() {
+      this.uuid = generateUUID();
     }
   }
 

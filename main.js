@@ -1,7 +1,7 @@
+require('utils/initCSS.js');
 var m = require('m');
-var DeveloperFactory = require('./factories/DeveloperFactory');
-var devList = require('./components/dev.list.js');
-
+var DeveloperFactory = require('factories/DeveloperFactory');
+var devList = require('components/dev.list.js');
 DeveloperFactory.createDeveloper('Robin', 7);
 
 var app = {};

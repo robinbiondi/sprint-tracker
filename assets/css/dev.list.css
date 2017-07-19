@@ -1,0 +1,12 @@
+.dev-list {
+  width: 100%
+}
+
+.dev-list__item {
+  width: 100%;
+}
+
+.dev-list__item__inline {
+  display: inline-block;
+  vertical-align: middle;
+}
