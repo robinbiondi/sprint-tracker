@@ -7,13 +7,14 @@ webpackConfig.output = {
 };
 webpackConfig.module = {
   loaders: [
-      { test: /\.css$/, loader: 'style!css'},
+      { test: /\.css$/, loader: 'style-loader!css-loader'},
   ]
 };
 
 webpackConfig.resolve = {
   modules: [
     'node_modules/',
+    './',
   ],
   alias: {
     m       : 'mithril/mithril',
