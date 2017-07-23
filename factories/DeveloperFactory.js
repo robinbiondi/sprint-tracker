@@ -1,21 +1,18 @@
 (function strict() {
-  define([
-    '../class/Developer',
-  ], developerFactory);
 
-  function developerFactory(Developer) {
-    var factory = {};
+  var Developer = require('class/Developer'); 
+  var DEFAULT_TIME = 7;
+  var factory = {};
 
-    factory.developers = [];
+  factory.developers = [];
 
-    factory.createDeveloper = function createDeveloper(name, timePerDay) {
-      var newDeveloper = new Developer(name, timePerDay);
-      factory.developers.push(newDeveloper);
+  factory.createDeveloper = function createDeveloper(name, timePerDay = DEFAULT_TIME) {
+    var newDeveloper = new Developer(name, timePerDay);
+    factory.developers.push(newDeveloper);
 
-      return newDeveloper;
-    };
+    return newDeveloper;
+  };
 
-    return factory;
-  }
+  module.exports = factory;
 
 })();
