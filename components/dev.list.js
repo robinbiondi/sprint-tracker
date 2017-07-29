@@ -2,6 +2,7 @@
   'use strict';
   var m = require('m');
   var DeveloperFactory = require('factories/DeveloperFactory');
+  var sectionCmp = require('components/section');
 
   var component = {};
 
@@ -16,14 +17,12 @@
     e.stopPropagation();
     DeveloperFactory.createDeveloper(this.newDeveloper);
     this.newDeveloper = '';
-
   };
 
   component.view = function view(vnode) {
     var self = this;
     var developers = DeveloperFactory.developers;
-
-    return m('.section.dev-list', [
+    var devList = m('.dev-list', [
       m('.dev-list__item', [
         m('.dev-list__item__inline.dev-list__item__name.dev-list__item__input', 'Name'),
         m('.dev-list__item__inline.dev-list__item__charge.dev-list__item__input', 'Time/day'),
@@ -40,6 +39,8 @@
         ]),
       ]),
     ]);
+
+    return m(sectionCmp, devList);
   };
 
   module.exports = component;
