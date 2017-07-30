@@ -28,10 +28,15 @@ webpackConfig.resolve = {
     'client/',
   ],
   alias: {
-    m       : 'mithril/mithril',
+    m     : 'mithril/mithril',
+    moment: 'moment/moment',
   },
 };
 
 webpackConfig.watch = true;
+webpackConfig.devServer = {
+  contentBase: './client',
+  inline: true,
+};
 
 module.exports = webpackConfig;

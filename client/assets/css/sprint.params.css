@@ -1,0 +1,25 @@
+.sprint-params__param {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sprint-params__param-title,
+.sprint-params__param-input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sprint-params__param-title {
+  width: 150px;
+}
+
+.sprint-params__param-input {
+  width: 200px;
+  border-bottom: solid 1px #AAA;
+}
+
+.param-input {
+  text-align: center;
+  width: 100%;
+}
