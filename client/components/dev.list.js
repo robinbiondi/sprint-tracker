@@ -49,17 +49,17 @@
     return m('.dev-list__item', [
       m('.dev-list__item__inline.dev-list__item__name', [
         m('input.dev-list__item__input', {
-          value: item.name,
-          oninput: m.withAttr('value', item.setName)
+          value  : item.name,
+          oninput: m.withAttr('value', v => item.setName(v)),
         }),
       ]),
       m('.dev-list__item__inline.dev-list__item__charge', [
         m('input.dev-list__item__input', {
-          type: 'number',
-          value: item.timePerDay,
-          oninput: m.withAttr('value', item.setTimePerDay)
+          type   : 'number',
+          value  : item.timePerDay,
+          oninput: m.withAttr('value', v => item.setTimePerDay(v)),
         }),
       ]),
-    ])
+    ]);
   }
 })();

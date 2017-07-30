@@ -24,10 +24,12 @@
          * @param {string} name 
          */
         setName(name) {
+
             this.name = name;
         }
 
         setTimePerDay(timePerDay) {
+            console.log('setTimePerDay', timePerDay);
             this.timePerDay = timePerDay;
         }
 
