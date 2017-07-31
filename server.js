@@ -12,8 +12,8 @@ app.get('/', function (req, res) {
   });
 });
 
-app.use('/client', express.static(__dirname + '/client'));
+app.use('/', express.static(__dirname + '/client'));
 
-app.listen(80, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
