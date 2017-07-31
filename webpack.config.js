@@ -1,10 +1,10 @@
 var path = require('path');
 
 var webpackConfig = {};
-
 var SRC_FOLDER = 'client/';
+var ENV = process.env.ENV || 'development';
 
-webpackConfig.context = path.resolve(__dirname, SRC_FOLDER); // where is your source code
+webpackConfig.context = path.resolve(__dirname, SRC_FOLDER);
 
 
 webpackConfig.entry = {
@@ -12,7 +12,7 @@ webpackConfig.entry = {
 };
 
 webpackConfig.output = {
-  path    : path.resolve(__dirname, SRC_FOLDER), // where bundles will go
+  path    : path.resolve(__dirname, SRC_FOLDER),
   filename: 'bundle.js',
 };
 
@@ -32,8 +32,8 @@ webpackConfig.resolve = {
     moment: 'moment/moment',
   },
 };
-
-webpackConfig.watch = true;
+webpackConfig.devtool = 'eval';
+webpackConfig.watch = ENV === 'development' ? true : false;
 webpackConfig.devServer = {
   contentBase: './client',
   inline: true,
