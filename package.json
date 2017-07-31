@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --watch --color --progress",
-    "prod": "npm i && npm --prefix client/ install && ENV='production' node_modules/.bin/webpack && ENV='production' node server.js &"
+    "prepare": "npm i && npm --prefix client/ install && ENV='production' node_modules/.bin/webpack",
+    "prod": "npm run stop-prod && npm run prepare && ENV='production' node server.js &",
+    "stop-prod": "sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill"
   },
   "repository": {
     "type": "git",
