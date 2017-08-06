@@ -52,12 +52,15 @@
       return now;
     }
 
-    now.hour(END_DAY_HOUR);
+    console.log('now', now.format('dddd, MMMM Do, HH:mm:ss'), END_DAY_HOUR);
+    now.hours(END_DAY_HOUR);
+    console.log('now', now.format('dddd, MMMM Do, HH:mm:ss'));
 
     var timeInDay = END_DAY_HOUR - START_DAY_HOUR;
     var bonusTeamTime = nbHours * (-1);
+    console.log('Bonus team time', timeInDay, bonusTeamTime, consumedByDay);
     var bonusTime = Math.ceil((bonusTeamTime * timeInDay) / consumedByDay);
-
+    console.log('bonus time', bonusTime);
     return now.subtract(bonusTime, 'hours');
   }
 

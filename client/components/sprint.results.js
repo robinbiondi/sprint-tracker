@@ -14,7 +14,7 @@
     var nbHours = ConfigurationFactory.nbHours;
     var developers = DeveloperFactory.developers;
     var endOfSprint = sprintService.computeEnd(start, nbHours, developers );
-    var endFormated = endOfSprint.format('dddd, MMMM Do, hh:mm:ss');
+    var endFormated = endOfSprint.format('dddd, MMMM Do, HH:mm:ss');
     var template = `The sprint will end on ${endFormated}`;
     var sprintResults = m('.sprint-results', [
       m('sprint-results__label', template),
