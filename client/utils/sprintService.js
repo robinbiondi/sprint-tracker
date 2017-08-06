@@ -31,7 +31,7 @@
   function computeEnd(startDate, nbHours, developers) {
     var now = moment(startDate).hour(START_DAY_HOUR).minute(0).second(0);
     var consumedByDay = developers.reduce(function addIt(total, dev) {
-      return total + dev.timePerDay;
+      return total + parseInt(dev.timePerDay);
     }, 0);
 
     return goOn(now, nbHours, consumedByDay);
@@ -39,7 +39,6 @@
   }
 
   function goOn(now, nbHours, consumedByDay) {
-    console.log('now.weekday', now.weekday());
     console.log(WORKING_DAYS.indexOf(now.weekday()));
     if (WORKING_DAYS.indexOf(now.weekday()) === -1)
       return goOn(now.add(1, 'days'), nbHours, consumedByDay);
@@ -52,15 +51,12 @@
       return now;
     }
 
-    console.log('now', now.format('dddd, MMMM Do, HH:mm:ss'), END_DAY_HOUR);
     now.hours(END_DAY_HOUR);
-    console.log('now', now.format('dddd, MMMM Do, HH:mm:ss'));
 
     var timeInDay = END_DAY_HOUR - START_DAY_HOUR;
     var bonusTeamTime = nbHours * (-1);
-    console.log('Bonus team time', timeInDay, bonusTeamTime, consumedByDay);
     var bonusTime = Math.ceil((bonusTeamTime * timeInDay) / consumedByDay);
-    console.log('bonus time', bonusTime);
+
     return now.subtract(bonusTime, 'hours');
   }
 
