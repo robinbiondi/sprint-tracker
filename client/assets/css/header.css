@@ -1,0 +1,9 @@
+#header {
+  height: 60px;
+  line-height: 60px;
+  background-color: #FFF;
+  padding-left: 20px;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0, 0.4);
+  position: relative;
+  z-index: 2;
+}
