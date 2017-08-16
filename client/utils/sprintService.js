@@ -30,22 +30,16 @@
 
   function computeEnd(startDate, nbHours, developers) {
     var now = moment(startDate).hour(START_DAY_HOUR).minute(0).second(0);
-    var consumedByDay = developers.reduce(function addIt(total, dev) {
-      return total + parseInt(dev.timePerDay);
-    }, 0);
-
-    return goOn(now, nbHours, consumedByDay);
-
+    return goOn(now, nbHours, developers);
   }
 
-  function goOn(now, nbHours, consumedByDay) {
-    console.log(WORKING_DAYS.indexOf(now.weekday()));
-    if (WORKING_DAYS.indexOf(now.weekday()) === -1)
-      return goOn(now.add(1, 'days'), nbHours, consumedByDay);
+  function goOn(now, nbHours, developers) {
+    var consumedByDay = _getConsumedOnDay(developers, now);
+
     nbHours -= consumedByDay;
 
     if (nbHours > 0)
-      return goOn(now.add(1, 'days'), nbHours, consumedByDay);
+      return goOn(now.add(1, 'days'), nbHours, developers);
     if (nbHours === 0) {
       now.hour(END_DAY_HOUR);
       return now;
@@ -58,6 +52,20 @@
     var bonusTime = Math.ceil((bonusTeamTime * timeInDay) / consumedByDay);
 
     return now.subtract(bonusTime, 'hours');
+  }
+
+  function _getConsumedOnDay(developers, day) {
+
+    var consumed = developers.reduce(function reduceIt(total, dev) {
+      var devDay = dev.getDayById(day.weekday());
+      console.log('devDay', devDay, 'total', total);
+      if (!devDay)
+        return total;
+      return total + parseInt(devDay.hours);
+    }, 0);
+    console.log('weekday', day.weekday(), 'consumed', consumed);
+    return consumed;
+
   }
 
 

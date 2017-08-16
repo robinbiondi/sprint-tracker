@@ -1,7 +1,6 @@
 (function strict() {
   'use strict';
   var m = require('m');
-  var moment
   var ConfigurationFactory = require('factories/ConfigurationFactory');
   var DeveloperFactory = require('factories/DeveloperFactory');
   var sprintService = require('utils/sprintService');
@@ -13,7 +12,7 @@
     var start = ConfigurationFactory.startDate;
     var nbHours = ConfigurationFactory.nbHours;
     var developers = DeveloperFactory.developers;
-    var endOfSprint = sprintService.computeEnd(start, nbHours, developers );
+    var endOfSprint = sprintService.computeEnd(start, nbHours, developers);
     var endFormated = endOfSprint.format('dddd, MMMM Do, HH:mm:ss');
     var template = `The sprint will end on ${endFormated}`;
     var sprintResults = m('.sprint-results', [

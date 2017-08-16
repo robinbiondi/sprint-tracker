@@ -9,7 +9,7 @@
   component.oninit = function oninit(vnode) {
     DeveloperFactory.createDeveloper('Fonzy', 7);
     this.newDeveloper = '';
-  }
+  };
 
   component.onKeyDown = function onKeyDown(e) {
     if (e.keyCode !== 13)
