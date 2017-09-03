@@ -14,7 +14,7 @@
      * @param {string} name
      * @param {number} timePerDay
      */
-    constructor(name, dayId, hours = 7) {
+    constructor(dayId, hours = 7) {
       super();
       this.dayId = dayId;
       this.hours = hours;

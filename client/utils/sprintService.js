@@ -58,12 +58,11 @@
 
     var consumed = developers.reduce(function reduceIt(total, dev) {
       var devDay = dev.getDayById(day.weekday());
-      console.log('devDay', devDay, 'total', total);
       if (!devDay)
         return total;
       return total + parseInt(devDay.hours);
     }, 0);
-    console.log('weekday', day.weekday(), 'consumed', consumed);
+    
     return consumed;
 
   }
