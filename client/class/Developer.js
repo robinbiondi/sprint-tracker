@@ -30,9 +30,11 @@
     setName(name) {
       this.name = name;
     }
-
+    
+    /**
+     * @param  {number} timePerDay
+     */
     setTimePerDay(timePerDay) {
-      console.log('setTimePerDay', timePerDay);
       this.timePerDay = timePerDay;
     }
 
