@@ -1,0 +1,24 @@
+.weekday-list {
+  height: 100%;
+  line-height: 40px;
+}
+
+.weekday-list__day {
+  width: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 40px;
+}
+
+.weekday-list__day--selected {
+  color: #D94350;
+}
+
+.weekday-list__day:hover {
+  color: #D94350;
+  transform: scale(1.1);
+  cursor: pointer;
+}
