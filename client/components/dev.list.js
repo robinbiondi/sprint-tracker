@@ -55,7 +55,9 @@
         }),
       ]),
       m('.dev-list__item__inline.dev-list__item__charge', [
-        m(weekdaySelector),
+        m(weekdaySelector, {
+          selectedDays: item.days,
+        }),
       ]),
     ]);
   }

@@ -19,8 +19,8 @@
       super();
       this.name = name;
       this.timePerDay = timePerDay;
+      this.days = [];
       this.initDays();
-      console.log('this', this, name, timePerDay);
     }
 
     /**
@@ -30,7 +30,7 @@
     setName(name) {
       this.name = name;
     }
-    
+
     /**
      * @param  {number} timePerDay
      */
@@ -46,8 +46,6 @@
 
     initDays() {
       var DEFAULT_DAYS = [1, 2, 3, 4, 5];
-      this.days = [];
-
 
       DEFAULT_DAYS.forEach(dayId => {
         var newDay = new Day(dayId, 7);
