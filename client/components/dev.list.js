@@ -3,6 +3,7 @@
   var m = require('m');
   var DeveloperFactory = require('factories/DeveloperFactory');
   var sectionCmp = require('components/section');
+  var weekdaySelector = require('components/weekday.selector');
 
   var component = {};
 
@@ -54,11 +55,7 @@
         }),
       ]),
       m('.dev-list__item__inline.dev-list__item__charge', [
-        m('input.dev-list__item__input', {
-          type   : 'number',
-          value  : item.timePerDay,
-          oninput: m.withAttr('value', v => item.setTimePerDay(v)),
-        }),
+        m(weekdaySelector),
       ]),
     ]);
   }
